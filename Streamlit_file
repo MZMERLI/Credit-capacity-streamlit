@@ -44,13 +44,13 @@ def client_prediction(id):
 ########################################################
 # Loading icon/image
 ########################################################
-image = Image.open("C:/Users/HP ELITEBOOK/Desktop/Nouveau dossier/images/pngwing.com.png")
+image = Image.open("pngwing.com.png")
 
 ########################################################
 # Loading data, model and preprocessing
 ########################################################
 # Data description of features:
-description = pd.read_csv('C:/Users/HP ELITEBOOK/Desktop/Nouveau dossier/HomeCredit_columns_description.csv',
+description = pd.read_csv('HomeCredit_columns_description.csv',
                                 verbose=False,
                                 encoding='ISO-8859-1',
                                 )
@@ -60,7 +60,7 @@ description = pd.read_csv('C:/Users/HP ELITEBOOK/Desktop/Nouveau dossier/HomeCre
 
 @st.cache
 def load_data ():
-    data = pd.read_csv('C:/Users/HP ELITEBOOK/Desktop/Nouveau dossier/data_try.csv')
+    data = pd.read_csv('data_try.csv')
     # Un échantillon à tester
     data = data.sample(frac=0.05)
     # Garder les colonnes avec 20 % ou plus de valeurs manquantes
@@ -72,9 +72,9 @@ def load_data ():
 
 
 # Chargement du modèle  
-model = joblib.load('C:/Users/HP ELITEBOOK/Desktop/Nouveau dossier/LGBM_P7.pkl')
+model = joblib.load('LGBM_P7.pkl')
 # Chargement du preprocessor
-loaded_preprocessor = joblib.load('C:/Users/HP ELITEBOOK/Desktop/Nouveau dossier/preprocessor_P7.joblib')
+loaded_preprocessor = joblib.load('preprocessor_P7.joblib')
 
 # Preprocessing
 data = load_data()
